@@ -3,565 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Un jardín para ti 🌼</title>
-
-  <meta
-    name="description"
-    content="Una página llena de flores amarillas, cariño y palabras bonitas."
-  />
-
+  <title>Feliz Cumpleaños</title>
   <style>
-    :root {
-      --amarillo: #ffd43b;
-      --amarillo-claro: #fff3a3;
-      --dorado: #f4a900;
-      --verde: #3f8f4c;
-      --verde-oscuro: #1d5c32;
-      --crema: #fffdf1;
-      --texto: #513b13;
-      --blanco: rgba(255, 255, 255, 0.86);
-    }
-
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #ffebf5, #ffe4cc, #f0f7ff);
+      overflow: hidden;
       min-height: 100vh;
-      overflow-x: hidden;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--texto);
-      background:
-        radial-gradient(circle at 20% 10%, #fff9b8 0 8%, transparent 25%),
-        radial-gradient(circle at 90% 20%, #ffe98b 0 5%, transparent 25%),
-        linear-gradient(135deg, #fffde7, #fff4ad 50%, #f7d75b);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      opacity: 0.18;
-      background-image:
-        radial-gradient(#ffffff 1px, transparent 1px),
-        radial-gradient(#ffffff 1px, transparent 1px);
-      background-size: 34px 34px;
-      background-position: 0 0, 17px 17px;
-      pointer-events: none;
-    }
-
-    .contenedor {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
-
-    header {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 70px 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
     }
 
-    .hero {
-      width: min(850px, 100%);
-      padding: 50px 25px;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      border-radius: 35px;
-      background: var(--blanco);
-      box-shadow:
-        0 20px 60px rgba(110, 75, 0, 0.18),
-        inset 0 0 35px rgba(255, 214, 48, 0.18);
-      backdrop-filter: blur(8px);
-      animation: aparecer 1.4s ease both;
+    .bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
     }
 
-    .flores-arriba {
-      font-size: clamp(2.2rem, 8vw, 5rem);
-      letter-spacing: 10px;
-      margin-bottom: 20px;
-      animation: flotar 4s ease-in-out infinite;
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      border-radius: 50% 50% 45% 45%;
+      opacity: 0.9;
+      animation: floatUp 8s ease-in-out infinite;
+    }
+
+    .balloon::before {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 70px;
+      background: rgba(0,0,0,0.2);
+      left: 50%;
+      transform: translateX(-50%);
+      top: 75px;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 50%;
+      top: 16px;
+      left: 18px;
+      filter: blur(1px);
+    }
+
+    .balloon.red { background: linear-gradient(#ff4d6d, #ff8fab); }
+    .balloon.pink { background: linear-gradient(#ff6ec7, #ff9ee2); }
+    .balloon.yellow { background: linear-gradient(#ffd93d, #ffe98a); }
+    .balloon.blue { background: linear-gradient(#4dabf7, #91d4ff); }
+    .balloon.purple { background: linear-gradient(#9b5de5, #c29ef7); }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(120vh) rotate(0deg); }
+      20% { transform: translateY(80vh) rotate(-8deg); }
+      50% { transform: translateY(30vh) rotate(8deg); }
+      80% { transform: translateY(0vh) rotate(-5deg); }
+    }
+
+    .card {
+      position: relative;
+      width: min(90vw, 700px);
+      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      box-shadow: 0 30px 60px rgba(255, 105, 180, 0.2);
+      padding: 40px 30px;
+      text-align: center;
+      z-index: 2;
+      animation: appear 1s ease-out;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .emoji {
+      font-size: 60px;
+      margin-bottom: 10px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     h1 {
-      font-size: clamp(2.6rem, 8vw, 6.2rem);
-      line-height: 1;
-      color: var(--dorado);
-      text-shadow: 3px 3px 0 #fff6a8;
-      margin-bottom: 20px;
+      font-size: clamp(2rem, 4vw, 4rem);
+      color: #ff4d8d;
+      margin: 10px 0;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 0 #ffdbe8;
     }
 
-    .subtitulo {
-      font-size: clamp(1.15rem, 3vw, 1.7rem);
-      line-height: 1.7;
-      margin: auto;
-      max-width: 700px;
+    .message {
+      font-size: clamp(1rem, 2vw, 1.4rem);
+      color: #4a3d52;
+      line-height: 1.8;
+      margin: 20px auto;
+      max-width: 520px;
     }
 
-    .resaltado {
-      color: #d88b00;
-      font-weight: bold;
-    }
-
-    .boton {
+    .heart {
+      color: #ff4d8d;
+      font-size: 22px;
+      animation: pulse 1.4s infinite;
       display: inline-block;
-      margin-top: 30px;
-      padding: 15px 28px;
-      border: none;
+      margin: 0 4px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 22px;
+      background: linear-gradient(135deg, #ff6aa2, #ff9f43);
+      color: white;
+      padding: 15px 30px;
       border-radius: 999px;
-      cursor: pointer;
-      color: #5c4000;
-      background: linear-gradient(135deg, #ffe56c, #f7b900);
-      font-size: 1rem;
-      font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 8px 20px rgba(203, 139, 0, 0.3);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .boton:hover {
-      transform: translateY(-5px) scale(1.04);
-      box-shadow: 0 13px 28px rgba(203, 139, 0, 0.4);
-    }
-
-    main {
-      padding-bottom: 80px;
-    }
-
-    .seccion {
-      margin: 35px auto;
-      padding: 42px 25px;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.72);
-      box-shadow: 0 12px 35px rgba(100, 65, 0, 0.12);
-      text-align: center;
-    }
-
-    .seccion h2 {
-      color: var(--verde-oscuro);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      margin-bottom: 28px;
-    }
-
-    .seccion h2::after {
-      content: " ✿";
-      color: var(--dorado);
-    }
-
-    .frases {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .tarjeta {
-      position: relative;
-      padding: 28px 22px;
-      border-radius: 25px;
-      background: linear-gradient(145deg, #fffef1, #fff4a8);
-      border: 1px solid rgba(238, 180, 0, 0.35);
-      transition: transform 0.3s ease;
-    }
-
-    .tarjeta:hover {
-      transform: translateY(-8px) rotate(1deg);
-    }
-
-    .tarjeta .icono {
-      display: block;
-      font-size: 3rem;
-      margin-bottom: 15px;
-    }
-
-    .tarjeta p {
-      line-height: 1.65;
-      font-size: 1.08rem;
-    }
-
-    .mensaje {
-      min-height: 100px;
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      margin-top: 25px;
-      color: var(--verde-oscuro);
-      font-size: clamp(1.2rem, 3vw, 1.7rem);
       font-weight: bold;
-      line-height: 1.5;
+      box-shadow: 0 10px 22px rgba(255, 106, 162, 0.4);
+      transition: transform 0.2s ease;
+      cursor: pointer;
     }
 
-    .jardin {
-      min-height: 230px;
-      display: flex;
-      justify-content: center;
-      align-items: end;
-      gap: 25px;
-      overflow: hidden;
-      padding-top: 30px;
-      border-radius: 25px;
-      background: linear-gradient(#b9e7ff, #eaffc7 65%, #8bd66f 66%);
+    .button:hover {
+      transform: translateY(-2px) scale(1.02);
     }
 
-    .flor {
-      position: relative;
-      width: 90px;
-      height: 175px;
-      animation: balanceo 3s ease-in-out infinite;
-      transform-origin: bottom center;
-    }
-
-    .flor:nth-child(2) {
-      animation-delay: -1s;
-    }
-
-    .flor:nth-child(3) {
-      animation-delay: -2s;
-    }
-
-    .flor::before {
-      content: "🌻";
+    .confetti {
       position: absolute;
-      top: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 4.8rem;
-      filter: drop-shadow(2px 4px 2px rgba(103, 80, 0, 0.22));
-    }
-
-    .tallo {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 9px;
-      height: 125px;
-      border-radius: 99px;
-      background: var(--verde);
-      transform: translateX(-50%);
-    }
-
-    .tallo::after,
-    .tallo::before {
-      content: "";
-      position: absolute;
-      width: 35px;
+      width: 10px;
       height: 18px;
-      background: var(--verde);
-      border-radius: 100% 0 100% 0;
+      opacity: 0.8;
+      animation: fall 4s linear infinite;
+      z-index: 1;
+      border-radius: 3px;
     }
 
-    .tallo::before {
-      top: 55px;
-      left: -29px;
-      transform: rotate(-25deg);
-    }
-
-    .tallo::after {
-      top: 82px;
-      left: 4px;
-      transform: rotate(25deg) scaleX(-1);
-    }
-
-    footer {
-      padding: 35px 20px;
-      text-align: center;
-      color: #705817;
-      font-size: 1rem;
-    }
-
-    .corazon {
-      color: #e88932;
-      animation: latir 1.2s infinite;
-      display: inline-block;
-    }
-
-    #contenedor-petalos {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    .petalo {
-      position: absolute;
-      top: -50px;
-      width: 18px;
-      height: 27px;
-      border-radius: 80% 20% 80% 20%;
-      background: linear-gradient(135deg, #fff36b, #eeb000);
-      opacity: 0.9;
-      box-shadow: 0 2px 6px rgba(120, 83, 0, 0.2);
-      animation: caer linear infinite;
-    }
-
-    @keyframes caer {
+    @keyframes fall {
       0% {
-        transform: translateY(-60px) translateX(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(55vh) translateX(80px) rotate(180deg);
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
       }
       100% {
-        transform: translateY(110vh) translateX(-70px) rotate(360deg);
-      }
-    }
-
-    @keyframes aparecer {
-      from {
+        transform: translateY(105vh) rotate(540deg);
         opacity: 0;
-        transform: translateY(30px) scale(0.96);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    @keyframes flotar {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-
-    @keyframes balanceo {
-      0%, 100% {
-        transform: rotate(-3deg);
-      }
-      50% {
-        transform: rotate(3deg);
-      }
-    }
-
-    @keyframes latir {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.35);
-      }
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding-top: 35px;
-      }
-
-      .hero {
-        padding: 38px 18px;
-      }
-
-      .flores-arriba {
-        letter-spacing: 3px;
-      }
-
-      .jardin {
-        gap: 0;
-        justify-content: space-around;
-      }
-
-      .flor {
-        transform: scale(0.78);
-        margin: 0 -12px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
       }
     }
   </style>
 </head>
-
 <body>
-  <div id="contenedor-petalos" aria-hidden="true"></div>
+  <div class="bg" id="bg"></div>
 
-  <header id="inicio">
-    <div class="contenedor">
-      <section class="hero">
-        <div class="flores-arriba" aria-label="Flores amarillas">
-          🌼 🌻 🌼 🌻 🌼
-        </div>
+  <div class="card">
+    <div class="emoji">🎉</div>
+    <h1>¡Feliz Cumpleaños!</h1>
 
-        <h1>Un jardín para ti</h1>
-
-        <p class="subtitulo">
-          Que nunca te falten motivos para sonreír,
-          sueños por cumplir y personas que te quieran
-          con un corazón tan bonito como el tuyo.
-        </p>
-
-        <a class="boton" href="#mensaje">
-          Ver un mensaje especial ✨
-        </a>
-      </section>
+    <div class="message">
+      Querida amiga, <br />
+      Hoy celebramos lo especial que eres, tu alegría, tu amor, tu bondad y la luz que aportas a todos los que te rodean. <br />
+      Que este nuevo año te traiga sueños cumplidos, momentos inolvidables y muchísima felicidad. <br />
+      <span class="heart">❤</span>
+      <span class="heart">❤</span>
+      <span class="heart">❤</span>
+      <br />
+      Te quiero mucho y espero que este día te haga sentir lo hermosa, valiosa y amada que eres.
     </div>
-  </header>
 
-  <main class="contenedor">
-    <section class="seccion" id="mensaje">
-      <h2>Palabras bonitas para ti</h2>
-
-      <div class="frases">
-        <article class="tarjeta">
-          <span class="icono">🌻</span>
-          <p>
-            Tu sonrisa tiene la capacidad de iluminar incluso
-            los días más nublados.
-          </p>
-        </article>
-
-        <article class="tarjeta">
-          <span class="icono">💛</span>
-          <p>
-            Eres una persona especial, valiosa y completamente
-            irrepetible.
-          </p>
-        </article>
-
-        <article class="tarjeta">
-          <span class="icono">✨</span>
-          <p>
-            Que cada nuevo amanecer te recuerde lo mucho que
-            mereces ser feliz.
-          </p>
-        </article>
-
-        <article class="tarjeta">
-          <span class="icono">🌼</span>
-          <p>
-            Así como las flores buscan la luz, que tú siempre
-            encuentres esperanza.
-          </p>
-        </article>
-      </div>
-
-      <div class="mensaje" id="mensajeSorpresa">
-        Pulsa el botón para recibir una sorpresa 🌟
-      </div>
-
-      <button class="boton" id="botonSorpresa">
-        Abrir mensaje sorpresa 💌
-      </button>
-    </section>
-
-    <section class="seccion">
-      <h2>Un pequeño jardín amarillo</h2>
-
-      <div class="jardin" aria-label="Jardín con girasoles">
-        <div class="flor">
-          <div class="tallo"></div>
-        </div>
-
-        <div class="flor">
-          <div class="tallo"></div>
-        </div>
-
-        <div class="flor">
-          <div class="tallo"></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    Hecho con flores, cariño y un poquito de magia
-    <span class="corazon">♥</span>
-  </footer>
+    <a class="button" href="#" onclick="celebrate()">¡Disfruta tu día!</a>
+  </div>
 
   <script>
-    const frasesSorpresa = [
-      "Eres como una flor amarilla: llevas luz incluso en los días grises. 🌻",
-      "Tu existencia hace que este mundo sea un lugar más bonito. 💛",
-      "Nunca olvides que hay alguien que piensa que eres increíble. ✨",
-      "Mereces amor, alegría, paz y todos los sueños que puedas imaginar. 🌼",
-      "Tu sonrisa es una de esas pequeñas cosas que hacen grande la vida. 😊"
-    ];
+    function createConfetti() {
+      const colors = ["#ff4d6d", "#ffd93d", "#4dabf7", "#9b5de5", "#06d6a0", "#ff9f1c"];
+      const bg = document.getElementById("bg");
 
-    const boton = document.getElementById("botonSorpresa");
-    const mensaje = document.getElementById("mensajeSorpresa");
-
-    boton.addEventListener("click", () => {
-      const numero = Math.floor(Math.random() * frasesSorpresa.length);
-      mensaje.textContent = frasesSorpresa[numero];
-
-      crearCorazones();
-    });
-
-    function crearPetalos() {
-      const contenedor = document.getElementById("contenedor-petalos");
-
-      for (let i = 0; i < 32; i++) {
-        const petalo = document.createElement("span");
-
-        petalo.className = "petalo";
-        petalo.style.left = Math.random() * 100 + "%";
-        petalo.style.animationDuration = 6 + Math.random() * 8 + "s";
-        petalo.style.animationDelay = Math.random() * 8 + "s";
-        petalo.style.transform = `rotate(${Math.random() * 360}deg)`;
-        petalo.style.opacity = 0.45 + Math.random() * 0.55;
-        petalo.style.scale = 0.6 + Math.random() * 0.8;
-
-        contenedor.appendChild(petalo);
+      for (let i = 0; i < 120; i++) {
+        const confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = (Math.random() * 4) + "s";
+        confetti.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        confetti.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+        bg.appendChild(confetti);
       }
     }
 
-    function crearCorazones() {
+    function createBalloons() {
+      const colors = ["red", "pink", "yellow", "blue", "purple"];
+      const bg = document.getElementById("bg");
+
       for (let i = 0; i < 12; i++) {
-        const corazon = document.createElement("span");
-
-        corazon.textContent = "💛";
-        corazon.style.position = "fixed";
-        corazon.style.left = 40 + Math.random() * 20 + "%";
-        corazon.style.top = "55%";
-        corazon.style.fontSize = 18 + Math.random() * 20 + "px";
-        corazon.style.zIndex = "20";
-        corazon.style.pointerEvents = "none";
-        corazon.style.animation = `subirCorazon ${2 + Math.random() * 2}s ease-out forwards`;
-
-        document.body.appendChild(corazon);
-
-        setTimeout(() => {
-          corazon.remove();
-        }, 4000);
+        const balloon = document.createElement("div");
+        balloon.className = "balloon " + colors[Math.floor(Math.random() * colors.length)];
+        balloon.style.left = (Math.random() * 92) + "%";
+        balloon.style.top = (Math.random() * 14 + 80) + "vh";
+        balloon.style.animationDelay = (Math.random() * 4) + "s";
+        bg.appendChild(balloon);
       }
     }
 
-    const estiloCorazones = document.createElement("style");
+    function celebrate() {
+      const message = "🎉 ¡Feliz cumpleaños, amiga! 🎉";
+      alert(message);
+    }
 
-    estiloCorazones.textContent = `
-      @keyframes subirCorazon {
-        0% {
-          opacity: 1;
-          transform: translate(0, 0) scale(0.5);
-        }
-        100% {
-          opacity: 0;
-          transform:
-            translate(${Math.random() > 0.5 ? "" : "-"}${40 + Math.random() * 100}px, -220px)
-            scale(1.4) rotate(20deg);
-        }
-      }
-    `;
-
-    document.head.appendChild(estiloCorazones);
-    crearPetalos();
+    createConfetti();
+    createBalloons();
   </script>
 </body>
-    </html>
+</html>
